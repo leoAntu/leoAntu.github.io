@@ -1,7 +1,7 @@
 ---
 layout : post
-title: 使用GithubPages-Hexo搭建免费博客_Mac（二）
-date: 2014-04-25 15:53:51
+title: Mac搭建Hexo免费博客（二）
+date: 2014-05-25 15:53:51
 tags: Blog
 excerpt: "根据hexo搭建博客-步骤2"
 comments: true
