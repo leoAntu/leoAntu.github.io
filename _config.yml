@@ -68,4 +68,7 @@ theme: hexo-theme-animastars
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repository: https://github.com/leoAntu/leoAntu.github.io
+  branch: master
+
