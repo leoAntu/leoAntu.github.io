@@ -1,7 +1,7 @@
 ---
 layout : post
 title: 使用GithubPages-Hexo搭建免费博客_Mac（二）
-date: 2016-02-25 15:53:51
+date: 2014-02-25 15:53:51
 tags: Blog
 excerpt: "根据hexo搭建博客-步骤2"
 comments: true
@@ -337,4 +337,5 @@ INFO Deploy done: git
 
 ---
 
-*本篇主要讲述了使用Hexo进行博客的搭建与配置，以及如何部署到github上，至此我们所有创建博客的工作已经完成。之后便是自己博客的编写与经营了，一些更深入的配置移步[第三篇](http://icehulu.com/2016/03/02/使用GithubPages-Hexo搭建免费博客（三）/)吧*
+*本篇主要讲述了使用Hexo进行博客的搭建与配置，以及如何部署到github上，至此我们所有创建博客的工作已经完成。之后便是自己博客的编写与经营了，一些更深入的配置移步第三篇吧*
+
