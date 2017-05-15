@@ -5,7 +5,7 @@
 # Site
 title: leoAntu Blog
 subtitle:
-description:iOS开发者
+description: iOS开发者
 author: leo links
 language:
 timezone:
@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-animastars-master
+theme: hexo-theme-animastars
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
