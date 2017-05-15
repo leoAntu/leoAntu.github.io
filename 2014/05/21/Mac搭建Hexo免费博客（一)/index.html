@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mac搭建Hexo免费博客（一） | leoAntu Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HEXO博客配置前言由于项目忙完，需要搭建一个Blog记录下工作经历，这里使用的是Hexo。一个方便快捷的搭建Blog工具 关于HexoHexo是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 Hexo官网 环境搭建硬件&amp;emsp;此版本为Mac版👽软件    &amp;emsp;node.js    &amp;emsp;n">
+<meta name="keywords" content="Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac搭建Hexo免费博客（一）">
+<meta property="og:url" content="http://leoAntu.github.io/2014/05/21/Mac搭建Hexo免费博客（一)/index.html">
+<meta property="og:site_name" content="leoAntu Blog">
+<meta property="og:description" content="HEXO博客配置前言由于项目忙完，需要搭建一个Blog记录下工作经历，这里使用的是Hexo。一个方便快捷的搭建Blog工具 关于HexoHexo是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 Hexo官网 环境搭建硬件&amp;emsp;此版本为Mac版👽软件    &amp;emsp;node.js    &amp;emsp;n">
+<meta property="og:image" content="http://7xr7f9.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-02-26%20%E4%B8%8B%E5%8D%884.13.00.png">
+<meta property="og:updated_time" content="2017-05-15T09:33:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac搭建Hexo免费博客（一）">
+<meta name="twitter:description" content="HEXO博客配置前言由于项目忙完，需要搭建一个Blog记录下工作经历，这里使用的是Hexo。一个方便快捷的搭建Blog工具 关于HexoHexo是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 Hexo官网 环境搭建硬件&amp;emsp;此版本为Mac版👽软件    &amp;emsp;node.js    &amp;emsp;n">
+<meta name="twitter:image" content="http://7xr7f9.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-02-26%20%E4%B8%8B%E5%8D%884.13.00.png">
+<meta name="twitter:creator" content="@coolwuxing">
+  
+    <link rel="alternative" href="/atom.xml" title="leoAntu Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43935113-3', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="header">
+  <div id="banner">
+    <div id="cover"></div>
+    <div id="stars"></div>
+  </div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">leoAntu Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://leoAntu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="outer">
+        <section id="main"><article id="post-Mac搭建Hexo免费博客（一)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/05/21/Mac搭建Hexo免费博客（一)/" class="article-date">
+  <time datetime="2014-05-21T07:53:51.000Z" itemprop="datePublished">2014-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mac搭建Hexo免费博客（一）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HEXO博客配置"><a href="#HEXO博客配置" class="headerlink" title="HEXO博客配置"></a>HEXO博客配置</h2><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>由于项目忙完，需要搭建一个Blog记录下工作经历，这里使用的是Hexo。一个方便快捷的搭建Blog工具</p>
+<h4 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h4><p>Hexo是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 <a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo官网</a></p>
+<h4 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h4><p>硬件<br>&emsp;此版本为Mac版👽<br>软件<br>    &emsp;node.js<br>    &emsp;npm<br>    &emsp;hexo<br>    &emsp;github账号</p>
+<h4 id="安装node-js与npm"><a href="#安装node-js与npm" class="headerlink" title="安装node.js与npm"></a>安装node.js与npm</h4><p>下载node.js 有多种方法：使用 <a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="external">Homebrew</a> 下载 或者直接下载安装包。 建议 node.js 直接下载 安装包，因为使用 brew 有可能失败，会被墙掉。</p>
+<p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">node.js下载地址</a></p>
+<p>node.js 下载完成后 安装到电脑上就可以了。安装成功后显示出来安装路径，可以看到 安装node.js 的时候 npm 也安装了。</p>
+<p>检测安装是否成功 终端输入 -v , 成功则显示版本号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ node -v</div><div class="line">v4.3.1</div><div class="line">$ npm -v</div><div class="line">2.14.12</div></pre></td></tr></table></figure>
+<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><p>文档里给出了详细的安装方法，只需要按其一步步来就好.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<p>安装成功，使用hexo 命令的时候，可能会出现以下错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123; [Error: Cannot find module &apos;./build/Release/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; &#125;    </div><div class="line">&#123; [Error: Cannot find module &apos;./build/default/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; &#125;</div><div class="line">&#123; [Error: Cannot find module &apos;./build/Debug/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; &#125;</div></pre></td></tr></table></figure>
+<p>这个错误也没有造成任何影响，所以忽略，Go on。 完成后，验证下是否安装成功.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo -v</div></pre></td></tr></table></figure>
+<h4 id="Hexo的使用"><a href="#Hexo的使用" class="headerlink" title="Hexo的使用"></a>Hexo的使用</h4><h6 id="1-创建存放博客的文件夹"><a href="#1-创建存放博客的文件夹" class="headerlink" title="1.创建存放博客的文件夹"></a>1.创建存放博客的文件夹</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir myblog</div></pre></td></tr></table></figure>
+<h5 id="2-执行以下命令，Hexo会在目标文件夹建立博客所需要的文件"><a href="#2-执行以下命令，Hexo会在目标文件夹建立博客所需要的文件" class="headerlink" title="2.执行以下命令，Hexo会在目标文件夹建立博客所需要的文件"></a>2.执行以下命令，Hexo会在目标文件夹建立博客所需要的文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
+<p>输出以下信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">INFO  Cloning hexo-starter to ~/Documents/mytest</div><div class="line">Cloning into &apos;/Users/Quncao/Documents/mytest&apos;...</div></pre></td></tr></table></figure>
+<p>成功之后文件夹的样子<br><img src="http://7xr7f9.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-02-26%20%E4%B8%8B%E5%8D%884.13.00.png" alt=""></p>
+<p>_config.yml : Hexo和站点的配置文件，里面可以设置博客的名字、标题、作者、链接格式等相关项<br>scaffolds : 脚手架，用于存放我们创建文章时的模版<br>source : 用于存放我们用markdown编写的博文原文件、其他静态资源文件<br>themes : 用于存放主题，里面有我们博客的默认主题landscape</p>
+<h5 id="3-执行以下命令，进行依赖包的安装"><a href="#3-执行以下命令，进行依赖包的安装" class="headerlink" title="3. 执行以下命令，进行依赖包的安装"></a>3. 执行以下命令，进行依赖包的安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install</div></pre></td></tr></table></figure>
+<p>node_modules: 关联保存了将会使用到的hexo依赖包</p>
+<h5 id="4-安装相关插件"><a href="#4-安装相关插件" class="headerlink" title="4. 安装相关插件"></a>4. 安装相关插件</h5><p>插件会安装至node_modules文件夹下，如果已经安装好的可以直接忽略.</p>
+<ul>
+<li>安装便于自动部署到Github上的插件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<ul>
+<li>安装atom生成插件，便于感兴趣的小伙伴们订阅</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-feed --save</div></pre></td></tr></table></figure>
+<ul>
+<li>安装博客首页生成插件</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-index --save</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装归档生成插件</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-archive --save</div></pre></td></tr></table></figure>
+<ul>
+<li>安装tag生成插件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-tag --save</div></pre></td></tr></table></figure>
+<ul>
+<li>安装category生成插件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-category --save</div></pre></td></tr></table></figure>
+<ul>
+<li>安装Sitemap文件生成插件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-sitemap --save</div></pre></td></tr></table></figure>
+<ul>
+<li>安装百度Sitemap文件生成插件，因为普通的Sitemap格式不符合百度的要求</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-baidu-sitemap --save</div></pre></td></tr></table></figure>
+<hr>
+<p><em>本篇主要讲述了使用Hexo进行博客的搭建与配置，以及如何部署到github上，至此我们所有创建博客的工作已经完成。之后便是自己博客的编写与经营了，一些更深入的配置移步<a href="https://leoantu.github.io/2014/04/25/Mac%E6%90%AD%E5%BB%BAHexo%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%BA%8C%EF%BC%89/">第二篇</a>吧</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://leoAntu.github.io/2014/05/21/Mac搭建Hexo免费博客（一)/" data-id="cj2pxoxmy0000dko6vr6zf4ac" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/05/25/Mac搭建Hexo免费博客（二）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Mac搭建Hexo免费博客（二）
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/05/30/Mac搭建Hexo免费博客（三）/">Mac搭建Hexo免费博客（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2014/05/25/Mac搭建Hexo免费博客（二）/">Mac搭建Hexo免费博客（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2014/05/21/Mac搭建Hexo免费博客（一)/">Mac搭建Hexo免费博客（一）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <div id="footer">
+  
+  <div id='foot-stars'></div>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 leo links<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
