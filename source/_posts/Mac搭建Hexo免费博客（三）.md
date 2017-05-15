@@ -1,7 +1,7 @@
 ---
 layout : post
 title: 使用GithubPages-Hexo搭建免费博客_Mac（三）
-date: 2016-02-26 10:53:51
+date: 2014-04-28 15:53:51
 tags: Blog
 excerpt: "根据hexo搭建博客-步骤3"
 comments: true
@@ -35,3 +35,5 @@ hexo d
 可以使用[七牛云存储](https://portal.qiniu.com/)
 
 ## [Mac上好用的GIF图截屏工具](http://www.cockos.com/licecap/)
+
+
