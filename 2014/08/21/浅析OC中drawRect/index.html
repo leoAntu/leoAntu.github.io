@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>浅析OC中drawRect | leoAntu Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="废话不多说，直接上代码 在View中重写- （void）drawRect：（CGRect）rect这个方法  12345678910111213141516171819202122@interface DrawView()&amp;#123;	    UIImage *image1;	    UIImage* image2;	&amp;#125;	@end－ (instancetype)initWithFrame">
+<meta name="keywords" content="Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅析OC中drawRect">
+<meta property="og:url" content="http://leoAntu.github.io/2014/08/21/浅析OC中drawRect/index.html">
+<meta property="og:site_name" content="leoAntu Blog">
+<meta property="og:description" content="废话不多说，直接上代码 在View中重写- （void）drawRect：（CGRect）rect这个方法  12345678910111213141516171819202122@interface DrawView()&amp;#123;	    UIImage *image1;	    UIImage* image2;	&amp;#125;	@end－ (instancetype)initWithFrame">
+<meta property="og:updated_time" content="2017-05-16T01:26:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅析OC中drawRect">
+<meta name="twitter:description" content="废话不多说，直接上代码 在View中重写- （void）drawRect：（CGRect）rect这个方法  12345678910111213141516171819202122@interface DrawView()&amp;#123;	    UIImage *image1;	    UIImage* image2;	&amp;#125;	@end－ (instancetype)initWithFrame">
+<meta name="twitter:creator" content="@coolwuxing">
+  
+    <link rel="alternative" href="/atom.xml" title="leoAntu Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43935113-3', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="header">
+  <div id="banner">
+    <div id="cover"></div>
+    <div id="stars"></div>
+  </div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">leoAntu Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://leoAntu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="outer">
+        <section id="main"><article id="post-浅析OC中drawRect" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/21/浅析OC中drawRect/" class="article-date">
+  <time datetime="2014-08-21T08:33:51.000Z" itemprop="datePublished">2014-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浅析OC中drawRect
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="废话不多说，直接上代码"><a href="#废话不多说，直接上代码" class="headerlink" title="废话不多说，直接上代码"></a>废话不多说，直接上代码</h4><ul>
+<li>在View中重写- （void）drawRect：（CGRect）rect这个方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">@interface DrawView()&#123;</div><div class="line">	    UIImage *image1;</div><div class="line">	    UIImage* image2;</div><div class="line">	&#125;</div><div class="line">	@end</div><div class="line">－ (instancetype)initWithFrame:(CGRect)frame</div><div class="line">	&#123;</div><div class="line">	    self = [super initWithFrame:frame];</div><div class="line">	    if (self) &#123;</div><div class="line">	         image1 = [UIImage imageNamed:@&quot;image.png&quot;];</div><div class="line">	         image2 = [UIImage imageNamed:@&quot;BGG.png&quot;];</div><div class="line">	    &#125;</div><div class="line">	    return self;</div><div class="line">	&#125;</div><div class="line">－ (void)drawRect:(CGRect)rect</div><div class="line">	&#123;</div><div class="line">	//    [self drawText];</div><div class="line">	//    [self drawLine];</div><div class="line">	//    [self draeRectangle:CGRectMake(10, 100, 50, 50)];</div><div class="line">	//    [self drawImage];</div><div class="line">	//    [self animationImage];</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h4 id="1-先从简单的画线开始"><a href="#1-先从简单的画线开始" class="headerlink" title="1.先从简单的画线开始"></a>1.先从简单的画线开始</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">－(void)drawLine</div><div class="line">	&#123;</div><div class="line">	CGContextRef context    =UIGraphicsGetCurrentContext();//获取画布</div><div class="line">	CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);//线条颜色</div><div class="line">	CGContextSetShouldAntialias(context,NO);//设置线条平滑，不需要两边像素宽</div><div class="line">	CGContextSetLineWidth(context,1.0f);//设置线条宽度</div><div class="line">	CGContextMoveToPoint(context,153,10); //线条起始点</div><div class="line">	CGContextAddLineToPoint(context,253,10);//线条结束点</div><div class="line">	CGContextStrokePath(context);//结束，也就是开始画</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-绘制文本"><a href="#2-绘制文本" class="headerlink" title="2.绘制文本"></a>2.绘制文本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">－(void)drawText</div><div class="line">	&#123;</div><div class="line">	    UIColor *color =[UIColor colorWithRed:0.5f</div><div class="line">	                                           green:0.0f</div><div class="line">	                                            blue:0.5f</div><div class="line">	                                           alpha:1.0f];</div><div class="line">	    [color set];</div><div class="line">	    UIFont *withFont:helvetica = [UIFont fontWithName:@&quot;HelveticaNeue-Bold&quot;size:30.0f];</div><div class="line">	    NSString *string =@&quot;李先森&quot;;</div><div class="line">	    [string drawAtPoint:CGPointMake(25,190)withFont:helvetica];</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-绘制矩形：这里有分为两种风格-1-无框矩形2-有框矩形"><a href="#3-绘制矩形：这里有分为两种风格-1-无框矩形2-有框矩形" class="headerlink" title="3.绘制矩形：这里有分为两种风格{1.无框矩形2.有框矩形}"></a>3.绘制矩形：这里有分为两种风格{1.无框矩形2.有框矩形}</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">－ (void)draeRectangle:(CGRect)rect&#123;</div><div class="line">    //首先，获取上下文</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    /*</div><div class="line">     //画无框矩形</div><div class="line">    //设置矩形填充颜色：红色</div><div class="line">    CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 1.0);</div><div class="line">    //填充矩形</div><div class="line">    CGContextFillRect(context, rect);</div><div class="line">    //执行绘画</div><div class="line">    CGContextStrokePath(context);</div><div class="line">    */</div><div class="line">    </div><div class="line">    //画有框矩形</div><div class="line">    //设置矩形填充颜色：红色</div><div class="line">    CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 1.0);</div><div class="line">    //填充矩形</div><div class="line">    CGContextFillRect(context, rect);</div><div class="line">    //设置画笔颜色：黑色</div><div class="line">    CGContextSetStrokeColorWithColor(context, BLUECOLOR.CGColor);</div><div class="line">    //设置画笔线条粗细</div><div class="line">    CGContextSetLineWidth(context, 3.0);</div><div class="line">    //画矩形边框</div><div class="line">    CGContextAddRect(context,rect);</div><div class="line">    //执行绘画  </div><div class="line">    CGContextStrokePath(context);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-绘制图片"><a href="#4-绘制图片" class="headerlink" title="4.绘制图片"></a>4.绘制图片</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">－(void)drawImage&#123;</div><div class="line">	    CGContextRef context    =UIGraphicsGetCurrentContext();//获取画布</div><div class="line">	    </div><div class="line">	//    CGContextDrawImage(context,CGRectMake(160,0,160, 150), [image1 CGImage]);</div><div class="line">	//上面这种方式，绘制出来的图片是翻转的，开始不知道。因为测试的图片都比较对称。后发发现是上下颠倒了</div><div class="line">	</div><div class="line">	    //下面才是正确的方法。</div><div class="line">	    UIGraphicsPushContext( context );</div><div class="line">	//    [image1 drawInRect:CGRectMake(160, 0, 160, 150)];</div><div class="line">	    [image1 drawInRect:CGRectMake(160, 0, 160, 150) blendMode:kCGBlendModeColor alpha:1];</div><div class="line">	</div><div class="line">	    UIGraphicsPopContext();</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h4 id="5-给图片添加动画"><a href="#5-给图片添加动画" class="headerlink" title="5.给图片添加动画"></a>5.给图片添加动画</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">－ (void)animationImage&#123;</div><div class="line">	    UIImageView *imageView = [[UIImageView alloc]initWithImage:image2];</div><div class="line">	    imageView.frame =CGRectMake(100,100,100,100);</div><div class="line">	    imageView.layer.cornerRadius = 50;</div><div class="line">	    imageView.layer.masksToBounds = YES;</div><div class="line">	    [self addSubview:imageView];</div><div class="line">	    imageView.userInteractionEnabled =YES;</div><div class="line">	    UITapGestureRecognizer* singleTap =</div><div class="line">	    [[UITapGestureRecognizer  alloc]initWithTarget:self action:@selector(onImageClick)];</div><div class="line">	    [imageView addGestureRecognizer:singleTap];</div><div class="line">	    </div><div class="line">	    //animation</div><div class="line">	    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@&quot;transform&quot;];</div><div class="line">	    animation.delegate =self;</div><div class="line">	    animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI ,0, 0,1.0)];</div><div class="line">	    animation.duration =1;</div><div class="line">	    animation.cumulative =YES;</div><div class="line">	    animation.repeatCount =INT_MAX;</div><div class="line">	    </div><div class="line">	    [imageView.layer addAnimation:animation forKey:@&quot;animation&quot;];</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (void)onImageClick</div><div class="line">&#123;</div><div class="line">// someing code   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://leoAntu.github.io/2014/08/21/浅析OC中drawRect/" data-id="cj2qvs4m50004tjo64sq7tfl4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/05/30/Mac搭建Hexo免费博客（三）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Mac搭建Hexo免费博客（三）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/08/21/浅析OC中drawRect/">浅析OC中drawRect</a>
+          </li>
+        
+          <li>
+            <a href="/2014/05/30/Mac搭建Hexo免费博客（三）/">Mac搭建Hexo免费博客（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2014/05/25/Mac搭建Hexo免费博客（二）/">Mac搭建Hexo免费博客（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2014/05/21/Mac搭建Hexo免费博客（一)/">Mac搭建Hexo免费博客（一）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <div id="footer">
+  
+  <div id='foot-stars'></div>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 leo links<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
