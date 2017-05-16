@@ -80,6 +80,64 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-App中如何实现快速实现打电话，发短信功能" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/12/App中如何实现快速实现打电话，发短信功能/" class="article-date">
+  <time datetime="2014-10-12T08:33:51.000Z" itemprop="datePublished">2014-10-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/12/App中如何实现快速实现打电话，发短信功能/">App中如何实现快速实现打电话，发短信功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在开发App中，经常会使用到点击拨打用户电话功能，短信功能可能会比较少见，其实在iOS中提供了接口，让我们调用。下面就让我们快速的了解这两个功能。</p>
+<h4 id="1-打电话功能"><a href="#1-打电话功能" class="headerlink" title="1.打电话功能"></a>1.打电话功能</h4><ul>
+<li>第一种是用UIWebView加载电话，这种是合法的，可以上App Store的。在实际开发中，本人一直使用此方法。 代码如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">UIWebView*callWebview =[[UIWebView alloc] init];  </div><div class="line">	NSURL *telURL =[NSURL URLWithString:@&quot;tel:10010&quot;];  </div><div class="line">	[callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];  </div><div class="line">	//记得添加到view上  </div><div class="line">	[self.view addSubview:callWebview];</div></pre></td></tr></table></figure>
+<ul>
+<li>第二种是私有方法，网上查资料说是不能上App Store的（自己没试过）。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@&quot;telprompt://10010&quot;]];</div></pre></td></tr></table></figure>
+<h4 id="2-短信功能"><a href="#2-短信功能" class="headerlink" title="2.短信功能"></a>2.短信功能</h4><ul>
+<li>第一种最简单是使用openURL：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@&quot;sms://10010&quot;]];//发短信</div></pre></td></tr></table></figure>
+<p>此方法虽然方便，但是上面无法指定短信内容，iOS4.0新加入了MFMessageComposeViewController和MFMessageComposeViewControllerDelegate，提供了发送短信的接口,可以像发送邮件那样不用跳出程序来发送短信.</p>
+<ul>
+<li>第二种MFMessageComposeViewController：<br>MFMessageComposeViewController提供了操作界面使用前必须检查canSendText方法,若返回NO则不应将这个controller展现出来,而应该提示用户不支持发送短信功能. messageComposeDelegate ：代理，处理发送结果 recipients ：收信人&lt;列表，支持群发&gt; body ：短信内容<br>Frameworks中要引入MessageUI.framework</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#import &lt;MessageUI/MessageUI.h&gt;</div><div class="line">	添加协议：&lt;MFMessageComposeViewControllerDelegate&gt;</div><div class="line">	</div><div class="line">	#import &lt;MessageUI/MessageUI.h&gt;   </div><div class="line">	@interface DemoViewController : UIViewController &lt;MFMessageComposeViewControllerDelegate&gt;  </div><div class="line">	  </div><div class="line">	@end</div></pre></td></tr></table></figure>
+<p>同时实现协议MFMessageComposeViewControllerDelegate</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">- (void)showMessageView  </div><div class="line">	&#123;  </div><div class="line">      </div><div class="line">    if( [MFMessageComposeViewController canSendText] )&#123;  </div><div class="line">          </div><div class="line">        MFMessageComposeViewController * controller = [[MFMessageComposeViewController alloc]init]; //autorelease];  </div><div class="line">          </div><div class="line">        controller.recipients = [NSArray arrayWithObject:@&quot;10010&quot;];       </div><div class="line">        controller.body = @&quot;测试发短信&quot;;          </div><div class="line">        controller.messageComposeDelegate = self;  </div><div class="line">  </div><div class="line">        [self presentModalViewController:controller animated:YES];  </div><div class="line">          </div><div class="line">        [[[[controller viewControllers] lastObject] navigationItem] setTitle:@&quot;测试短信&quot;];//修改短信界面标题  </div><div class="line">    &#125;else&#123;  </div><div class="line">          </div><div class="line">        [self alertWithTitle:@&quot;提示信息&quot; msg:@&quot;设备没有短信功能&quot;];          </div><div class="line">	 &#125;      </div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	//MFMessageComposeViewControllerDelegate  </div><div class="line">- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result&#123;  </div><div class="line">	    [controller dismissModalViewControllerAnimated:NO];//关键的一句   不能为YES  </div><div class="line">      </div><div class="line">	    switch ( result ) &#123;  </div><div class="line">              </div><div class="line">        case MessageComposeResultCancelled:  </div><div class="line">  </div><div class="line">            [self alertWithTitle:@&quot;提示信息&quot; msg:@&quot;发送取消&quot;];   </div><div class="line">            break;  </div><div class="line">        case MessageComposeResultFailed:// send failed  </div><div class="line">            [self alertWithTitle:@&quot;提示信息&quot; msg:@&quot;发送成功&quot;];   </div><div class="line">            break;  </div><div class="line">        case MessageComposeResultSent:  </div><div class="line">            [self alertWithTitle:@&quot;提示信息&quot; msg:@&quot;发送失败&quot;];   </div><div class="line">            break;  </div><div class="line">        default:  </div><div class="line">            break;   </div><div class="line">	    &#125;  </div><div class="line">	  &#125;  </div><div class="line">        </div><div class="line">- (void) alertWithTitle:(NSString *)title msg:(NSString *)msg &#123;  </div><div class="line">	    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title  </div><div class="line">	           message:msg  </div><div class="line">	           delegate:self  </div><div class="line">	           cancelButtonTitle:nil  </div><div class="line">	           otherButtonTitles:@&quot;确定&quot;, nil];  </div><div class="line">			[alert show];  </div><div class="line">		&#125;  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://leoAntu.github.io/2014/10/12/App中如何实现快速实现打电话，发短信功能/" data-id="cj2qwhi2c00001wo6jileh451" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-浅析OC中drawRect" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/08/21/浅析OC中drawRect/" class="article-date">
@@ -116,7 +174,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://leoAntu.github.io/2014/08/21/浅析OC中drawRect/" data-id="cj2qvs4m50004tjo64sq7tfl4" class="article-share-link">Share</a>
+      <a data-url="http://leoAntu.github.io/2014/08/21/浅析OC中drawRect/" data-id="cj2qwhi2q00051wo6b6x6kclg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -167,7 +225,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://leoAntu.github.io/2014/05/30/Mac搭建Hexo免费博客（三）/" data-id="cj2qvs4lz0001tjo6c5spjor0" class="article-share-link">Share</a>
+      <a data-url="http://leoAntu.github.io/2014/05/30/Mac搭建Hexo免费博客（三）/" data-id="cj2qwhi2l00031wo6x0ophp64" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -305,7 +363,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://leoAntu.github.io/2014/05/25/Mac搭建Hexo免费博客（二）/" data-id="cj2qvs4m30003tjo6pwdb7kgj" class="article-share-link">Share</a>
+      <a data-url="http://leoAntu.github.io/2014/05/25/Mac搭建Hexo免费博客（二）/" data-id="cj2qwhi2n00041wo6qenlutcg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -400,7 +458,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://leoAntu.github.io/2014/05/21/Mac搭建Hexo免费博客（一)/" data-id="cj2qvs4lt0000tjo6ky08gf7v" class="article-share-link">Share</a>
+      <a data-url="http://leoAntu.github.io/2014/05/21/Mac搭建Hexo免费博客（一)/" data-id="cj2qwhi2g00011wo6rmemg54c" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -423,7 +481,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">4</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -441,7 +499,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -451,6 +509,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/10/12/App中如何实现快速实现打电话，发短信功能/">App中如何实现快速实现打电话，发短信功能</a>
+          </li>
         
           <li>
             <a href="/2014/08/21/浅析OC中drawRect/">浅析OC中drawRect</a>
