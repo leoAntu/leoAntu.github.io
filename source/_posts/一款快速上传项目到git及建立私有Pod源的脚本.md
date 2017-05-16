@@ -10,7 +10,7 @@ comments: true
 
 ####1.先到git上开一个repo。
 
-    ![](https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/B60AC312-71C3-4C7B-A7BD-668D4351C0E0.png?raw=true)
+![](https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/B60AC312-71C3-4C7B-A7BD-668D4351C0E0.png?raw=true)
     
     
     
