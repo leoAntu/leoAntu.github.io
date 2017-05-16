@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://leoAntu.github.io/"/>
-  <updated>2017-05-16T01:47:26.000Z</updated>
+  <updated>2017-05-16T09:50:15.000Z</updated>
   <id>http://leoAntu.github.io/</id>
   
   <author>
@@ -16,11 +16,48 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://leoAntu.github.io/2017/05/16/%E4%B8%80%E6%AC%BE%E5%BF%AB%E9%80%9F%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0git%E5%8F%8A%E5%BB%BA%E7%AB%8B%E7%A7%81%E6%9C%89Pod%E6%BA%90%E7%9A%84%E8%84%9A%E6%9C%AC/"/>
+    <id>http://leoAntu.github.io/2017/05/16/一款快速上传项目到git及建立私有Pod源的脚本/</id>
+    <published>2017-05-16T08:35:19.000Z</published>
+    <updated>2017-05-16T09:50:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一款快速上传项目到git及建立自己的私有Pod源脚本，方便快捷。<a href="https://github.com/leoAntu/podShell" target="_blank" rel="external">下载podShell</a></p>
+<p>####1.先到git上开一个repo。<br>    <img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/B60AC312-71C3-4C7B-A7BD-668D4351C0E0.png?raw=true" alt=""></p>
+<p>####2.创建文件夹，将podShell拖入到文件夹。<br> 通过终端进入文件夹路径。<br> <img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/1BB6C498-C4DE-40DF-B8F5-E92BBC5D56D1.png?raw=true" alt=""></p>
+<p>####3.运行.config.sh文件。<br> 依次填入对应的信息<br> <img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/66233E78-521E-464C-A275-4F6AF20BCB29.png?raw=true" alt=""></p>
+<p>最后发现podShell同级文件夹会如下图所示。<br><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/98E63650-F698-41B5-BC75-A0B02E3D34D2.png?raw=true" alt=""></p>
+<p>####4.将需要上传的文件拖入到图中Demo文件夹目录即可,运行tag.sh<br>    输入对应的tag号<br>    <img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/C4ACFA9F-0398-4B66-98FC-7E02D672FA80.png?raw=true" alt=""></p>
+<p><strong>此时已经将项目上传至git并打上tag值。但是还没有发布自己的Pods。</strong></p>
+<h4 id="5-注册Trunk"><a href="#5-注册Trunk" class="headerlink" title="5.注册Trunk"></a>5.注册Trunk</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk register email &apos;name&apos; --description=&apos;macbook air&apos;</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/87A7C773-625D-4228-8253-E7462704AB6C.png?raw=true" alt=""></p>
+<p>此时，你的邮箱会收到一封邮件。复制链接打开即可。(一般只需注册一次即可，后期发布其他项目都不需)<br><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/F0DA55C8-274A-4A3E-A34C-08E884C9484D.png?raw=true" alt=""></p>
+<p>####6.发布到pod trunk</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk push leoTestDemo.podspec</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/D93F3646-04DE-49D8-91F7-94C9C53E4480.png?raw=true" alt=""><br>如上图所示发布成功</p>
+<p>####7.更新pod库</p>
+<p>发布成功。通过pod search指令可能不是立即找到我们发布的项目，可通过下面两条指令操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod setup</div></pre></td></tr></table></figure>
+<p>删除本地索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -f ~/Library/Caches/CocoaPods/search_index.json</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一款快速上传项目到git及建立自己的私有Pod源脚本，方便快捷。&lt;a href=&quot;https://github.com/leoAntu/podShell&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;下载podShell&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;####1.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>App中如何实现快速实现打电话，发短信功能</title>
     <link href="http://leoAntu.github.io/2014/10/12/App%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0%E6%89%93%E7%94%B5%E8%AF%9D%EF%BC%8C%E5%8F%91%E7%9F%AD%E4%BF%A1%E5%8A%9F%E8%83%BD/"/>
     <id>http://leoAntu.github.io/2014/10/12/App中如何实现快速实现打电话，发短信功能/</id>
     <published>2014-10-12T08:33:51.000Z</published>
-    <updated>2017-05-16T01:47:26.000Z</updated>
+    <updated>2017-05-16T01:50:26.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在开发App中，经常会使用到点击拨打用户电话功能，短信功能可能会比较少见，其实在iOS中提供了接口，让我们调用。下面就让我们快速的了解这两个功能。</p>
 <h4 id="1-打电话功能"><a href="#1-打电话功能" class="headerlink" title="1.打电话功能"></a>1.打电话功能</h4><ul>
@@ -60,7 +97,7 @@
     <link href="http://leoAntu.github.io/2014/08/21/%E6%B5%85%E6%9E%90OC%E4%B8%ADdrawRect/"/>
     <id>http://leoAntu.github.io/2014/08/21/浅析OC中drawRect/</id>
     <published>2014-08-21T08:33:51.000Z</published>
-    <updated>2017-05-16T01:33:01.000Z</updated>
+    <updated>2017-05-16T01:50:26.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="废话不多说，直接上代码"><a href="#废话不多说，直接上代码" class="headerlink" title="废话不多说，直接上代码"></a>废话不多说，直接上代码</h4><ul>
 <li>在View中重写- （void）drawRect：（CGRect）rect这个方法</li>
@@ -91,7 +128,7 @@
     <link href="http://leoAntu.github.io/2014/05/30/Mac%E6%90%AD%E5%BB%BAHexo%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89/"/>
     <id>http://leoAntu.github.io/2014/05/30/Mac搭建Hexo免费博客（三）/</id>
     <published>2014-05-30T08:53:51.000Z</published>
-    <updated>2017-05-16T01:33:01.000Z</updated>
+    <updated>2017-05-16T01:50:26.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h2><ul>
 <li>域名解析<br>域名购买成功后，在解析设置中添加以下解析</li>
@@ -127,7 +164,7 @@
     <link href="http://leoAntu.github.io/2014/05/25/Mac%E6%90%AD%E5%BB%BAHexo%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://leoAntu.github.io/2014/05/25/Mac搭建Hexo免费博客（二）/</id>
     <published>2014-05-25T07:53:51.000Z</published>
-    <updated>2017-05-16T01:33:01.000Z</updated>
+    <updated>2017-05-16T01:50:26.000Z</updated>
     
     <content type="html"><![CDATA[<p>上篇讲到Hexo的安装，本篇继续，先来说说Hexo安装后的文件结构与功能。</p>
 <h2 id="HEXO博客配置"><a href="#HEXO博客配置" class="headerlink" title="HEXO博客配置"></a>HEXO博客配置</h2><h4 id="1-Hexo设置"><a href="#1-Hexo设置" class="headerlink" title="1. Hexo设置"></a>1. Hexo设置</h4><p>打开根目录下的_config.yml文件</p>
@@ -248,7 +285,7 @@
     <link href="http://leoAntu.github.io/2014/05/21/Mac%E6%90%AD%E5%BB%BAHexo%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80)/"/>
     <id>http://leoAntu.github.io/2014/05/21/Mac搭建Hexo免费博客（一)/</id>
     <published>2014-05-21T07:53:51.000Z</published>
-    <updated>2017-05-16T01:33:01.000Z</updated>
+    <updated>2017-05-16T01:50:26.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="HEXO博客配置"><a href="#HEXO博客配置" class="headerlink" title="HEXO博客配置"></a>HEXO博客配置</h2><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>由于项目忙完，需要搭建一个Blog记录下工作经历，这里使用的是Hexo。一个方便快捷的搭建Blog工具</p>
 <h4 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h4><p>Hexo是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 <a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo官网</a></p>
