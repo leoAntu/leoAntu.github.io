@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://leoAntu.github.io/"/>
-  <updated>2017-05-16T01:26:02.000Z</updated>
+  <updated>2017-05-16T01:47:26.000Z</updated>
   <id>http://leoAntu.github.io/</id>
   
   <author>
@@ -16,11 +16,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>App中如何实现快速实现打电话，发短信功能</title>
+    <link href="http://leoAntu.github.io/2014/10/12/App%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0%E6%89%93%E7%94%B5%E8%AF%9D%EF%BC%8C%E5%8F%91%E7%9F%AD%E4%BF%A1%E5%8A%9F%E8%83%BD/"/>
+    <id>http://leoAntu.github.io/2014/10/12/App中如何实现快速实现打电话，发短信功能/</id>
+    <published>2014-10-12T08:33:51.000Z</published>
+    <updated>2017-05-16T01:47:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在开发App中，经常会使用到点击拨打用户电话功能，短信功能可能会比较少见，其实在iOS中提供了接口，让我们调用。下面就让我们快速的了解这两个功能。</p>
+<h4 id="1-打电话功能"><a href="#1-打电话功能" class="headerlink" title="1.打电话功能"></a>1.打电话功能</h4><ul>
+<li>第一种是用UIWebView加载电话，这种是合法的，可以上App Store的。在实际开发中，本人一直使用此方法。 代码如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">UIWebView*callWebview =[[UIWebView alloc] init];  </div><div class="line">	NSURL *telURL =[NSURL URLWithString:@&quot;tel:10010&quot;];  </div><div class="line">	[callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];  </div><div class="line">	//记得添加到view上  </div><div class="line">	[self.view addSubview:callWebview];</div></pre></td></tr></table></figure>
+<ul>
+<li>第二种是私有方法，网上查资料说是不能上App Store的（自己没试过）。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@&quot;telprompt://10010&quot;]];</div></pre></td></tr></table></figure>
+<h4 id="2-短信功能"><a href="#2-短信功能" class="headerlink" title="2.短信功能"></a>2.短信功能</h4><ul>
+<li>第一种最简单是使用openURL：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@&quot;sms://10010&quot;]];//发短信</div></pre></td></tr></table></figure>
+<p>此方法虽然方便，但是上面无法指定短信内容，iOS4.0新加入了MFMessageComposeViewController和MFMessageComposeViewControllerDelegate，提供了发送短信的接口,可以像发送邮件那样不用跳出程序来发送短信.</p>
+<ul>
+<li>第二种MFMessageComposeViewController：<br>MFMessageComposeViewController提供了操作界面使用前必须检查canSendText方法,若返回NO则不应将这个controller展现出来,而应该提示用户不支持发送短信功能. messageComposeDelegate ：代理，处理发送结果 recipients ：收信人&lt;列表，支持群发&gt; body ：短信内容<br>Frameworks中要引入MessageUI.framework</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#import &lt;MessageUI/MessageUI.h&gt;</div><div class="line">	添加协议：&lt;MFMessageComposeViewControllerDelegate&gt;</div><div class="line">	</div><div class="line">	#import &lt;MessageUI/MessageUI.h&gt;   </div><div class="line">	@interface DemoViewController : UIViewController &lt;MFMessageComposeViewControllerDelegate&gt;  </div><div class="line">	  </div><div class="line">	@end</div></pre></td></tr></table></figure>
+<p>同时实现协议MFMessageComposeViewControllerDelegate</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">- (void)showMessageView  </div><div class="line">	&#123;  </div><div class="line">      </div><div class="line">    if( [MFMessageComposeViewController canSendText] )&#123;  </div><div class="line">          </div><div class="line">        MFMessageComposeViewController * controller = [[MFMessageComposeViewController alloc]init]; //autorelease];  </div><div class="line">          </div><div class="line">        controller.recipients = [NSArray arrayWithObject:@&quot;10010&quot;];       </div><div class="line">        controller.body = @&quot;测试发短信&quot;;          </div><div class="line">        controller.messageComposeDelegate = self;  </div><div class="line">  </div><div class="line">        [self presentModalViewController:controller animated:YES];  </div><div class="line">          </div><div class="line">        [[[[controller viewControllers] lastObject] navigationItem] setTitle:@&quot;测试短信&quot;];//修改短信界面标题  </div><div class="line">    &#125;else&#123;  </div><div class="line">          </div><div class="line">        [self alertWithTitle:@&quot;提示信息&quot; msg:@&quot;设备没有短信功能&quot;];          </div><div class="line">	 &#125;      </div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	//MFMessageComposeViewControllerDelegate  </div><div class="line">- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result&#123;  </div><div class="line">	    [controller dismissModalViewControllerAnimated:NO];//关键的一句   不能为YES  </div><div class="line">      </div><div class="line">	    switch ( result ) &#123;  </div><div class="line">              </div><div class="line">        case MessageComposeResultCancelled:  </div><div class="line">  </div><div class="line">            [self alertWithTitle:@&quot;提示信息&quot; msg:@&quot;发送取消&quot;];   </div><div class="line">            break;  </div><div class="line">        case MessageComposeResultFailed:// send failed  </div><div class="line">            [self alertWithTitle:@&quot;提示信息&quot; msg:@&quot;发送成功&quot;];   </div><div class="line">            break;  </div><div class="line">        case MessageComposeResultSent:  </div><div class="line">            [self alertWithTitle:@&quot;提示信息&quot; msg:@&quot;发送失败&quot;];   </div><div class="line">            break;  </div><div class="line">        default:  </div><div class="line">            break;   </div><div class="line">	    &#125;  </div><div class="line">	  &#125;  </div><div class="line">        </div><div class="line">- (void) alertWithTitle:(NSString *)title msg:(NSString *)msg &#123;  </div><div class="line">	    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title  </div><div class="line">	           message:msg  </div><div class="line">	           delegate:self  </div><div class="line">	           cancelButtonTitle:nil  </div><div class="line">	           otherButtonTitles:@&quot;确定&quot;, nil];  </div><div class="line">			[alert show];  </div><div class="line">		&#125;  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;在开发App中，经常会使用到点击拨打用户电话功能，短信功能可能会比较少见，其实在iOS中提供了接口，让我们调用。下面就让我们快速的了解这两个
+    
+    </summary>
+    
+    
+      <category term="Blog" scheme="http://leoAntu.github.io/tags/Blog/"/>
+    
+  </entry>
+  
+  <entry>
     <title>浅析OC中drawRect</title>
     <link href="http://leoAntu.github.io/2014/08/21/%E6%B5%85%E6%9E%90OC%E4%B8%ADdrawRect/"/>
     <id>http://leoAntu.github.io/2014/08/21/浅析OC中drawRect/</id>
     <published>2014-08-21T08:33:51.000Z</published>
-    <updated>2017-05-16T01:26:02.000Z</updated>
+    <updated>2017-05-16T01:33:01.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="废话不多说，直接上代码"><a href="#废话不多说，直接上代码" class="headerlink" title="废话不多说，直接上代码"></a>废话不多说，直接上代码</h4><ul>
 <li>在View中重写- （void）drawRect：（CGRect）rect这个方法</li>
@@ -51,7 +91,7 @@
     <link href="http://leoAntu.github.io/2014/05/30/Mac%E6%90%AD%E5%BB%BAHexo%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89/"/>
     <id>http://leoAntu.github.io/2014/05/30/Mac搭建Hexo免费博客（三）/</id>
     <published>2014-05-30T08:53:51.000Z</published>
-    <updated>2017-05-15T09:42:22.000Z</updated>
+    <updated>2017-05-16T01:33:01.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h2><ul>
 <li>域名解析<br>域名购买成功后，在解析设置中添加以下解析</li>
@@ -87,7 +127,7 @@
     <link href="http://leoAntu.github.io/2014/05/25/Mac%E6%90%AD%E5%BB%BAHexo%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://leoAntu.github.io/2014/05/25/Mac搭建Hexo免费博客（二）/</id>
     <published>2014-05-25T07:53:51.000Z</published>
-    <updated>2017-05-15T09:42:22.000Z</updated>
+    <updated>2017-05-16T01:33:01.000Z</updated>
     
     <content type="html"><![CDATA[<p>上篇讲到Hexo的安装，本篇继续，先来说说Hexo安装后的文件结构与功能。</p>
 <h2 id="HEXO博客配置"><a href="#HEXO博客配置" class="headerlink" title="HEXO博客配置"></a>HEXO博客配置</h2><h4 id="1-Hexo设置"><a href="#1-Hexo设置" class="headerlink" title="1. Hexo设置"></a>1. Hexo设置</h4><p>打开根目录下的_config.yml文件</p>
@@ -208,7 +248,7 @@
     <link href="http://leoAntu.github.io/2014/05/21/Mac%E6%90%AD%E5%BB%BAHexo%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80)/"/>
     <id>http://leoAntu.github.io/2014/05/21/Mac搭建Hexo免费博客（一)/</id>
     <published>2014-05-21T07:53:51.000Z</published>
-    <updated>2017-05-15T09:42:22.000Z</updated>
+    <updated>2017-05-16T01:33:01.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="HEXO博客配置"><a href="#HEXO博客配置" class="headerlink" title="HEXO博客配置"></a>HEXO博客配置</h2><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>由于项目忙完，需要搭建一个Blog记录下工作经历，这里使用的是Hexo。一个方便快捷的搭建Blog工具</p>
 <h4 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h4><p>Hexo是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 <a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo官网</a></p>

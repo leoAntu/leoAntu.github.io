@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://leoAntu.github.io/2014/08/21/%E6%B5%85%E6%9E%90OC%E4%B8%ADdrawRect/</loc>
-    <lastmod>2017-05-16T01:26:02.000Z</lastmod>
+    <loc>http://leoAntu.github.io/2014/10/12/App%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0%E6%89%93%E7%94%B5%E8%AF%9D%EF%BC%8C%E5%8F%91%E7%9F%AD%E4%BF%A1%E5%8A%9F%E8%83%BD/</loc>
+    <lastmod>2017-05-16T01:47:26.000Z</lastmod>
     <data>
         <display>
-        <title>浅析OC中drawRect</title>
-        <pubTime>2014-08-21T08:33:51.000Z</pubTime>
+        <title>App中如何实现快速实现打电话，发短信功能</title>
+        <pubTime>2014-10-12T08:33:51.000Z</pubTime>
         
         <tag>Blog</tag>
          
@@ -22,7 +22,7 @@
     
   <url>
     <loc>http://leoAntu.github.io/2014/05/21/Mac%E6%90%AD%E5%BB%BAHexo%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80)/</loc>
-    <lastmod>2017-05-15T09:42:22.000Z</lastmod>
+    <lastmod>2017-05-16T01:33:01.000Z</lastmod>
     <data>
         <display>
         <title>Mac搭建Hexo免费博客（一）</title>
@@ -39,7 +39,7 @@
     
   <url>
     <loc>http://leoAntu.github.io/2014/05/30/Mac%E6%90%AD%E5%BB%BAHexo%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89/</loc>
-    <lastmod>2017-05-15T09:42:22.000Z</lastmod>
+    <lastmod>2017-05-16T01:33:01.000Z</lastmod>
     <data>
         <display>
         <title>Mac搭建Hexo免费博客（三）</title>
@@ -56,11 +56,28 @@
     
   <url>
     <loc>http://leoAntu.github.io/2014/05/25/Mac%E6%90%AD%E5%BB%BAHexo%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%BA%8C%EF%BC%89/</loc>
-    <lastmod>2017-05-15T09:42:22.000Z</lastmod>
+    <lastmod>2017-05-16T01:33:01.000Z</lastmod>
     <data>
         <display>
         <title>Mac搭建Hexo免费博客（二）</title>
         <pubTime>2014-05-25T07:53:51.000Z</pubTime>
+        
+        <tag>Blog</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://leoAntu.github.io/2014/08/21/%E6%B5%85%E6%9E%90OC%E4%B8%ADdrawRect/</loc>
+    <lastmod>2017-05-16T01:33:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅析OC中drawRect</title>
+        <pubTime>2014-08-21T08:33:51.000Z</pubTime>
         
         <tag>Blog</tag>
          
