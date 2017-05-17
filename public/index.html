@@ -80,6 +80,51 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-MJRefresh实现自定义动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/24/MJRefresh实现自定义动画/" class="article-date">
+  <time datetime="2014-12-24T04:33:51.000Z" itemprop="datePublished">2014-12-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/24/MJRefresh实现自定义动画/">MJRefresh实现自定义动画</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>在实际开发中，产品对刷新的视觉效果越来越高，最常见的就是动画效果。<br>本项目继承MJRefresh，让上拉，下拉，更好的自定义动画效果。</p>
+<h2 id="支持pod"><a href="#支持pod" class="headerlink" title="支持pod"></a>支持pod</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod <span class="string">"LARefresh"</span></div></pre></td></tr></table></figure>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.tableView.mj_header = [<span class="type">LARefreshHeader</span> headerWithRefreshingBlock:^&#123;</div><div class="line">    </div><div class="line"> &#125;];</div><div class="line"> <span class="keyword">self</span>.tableView.mj_footer = [<span class="type">LARefreshFooter</span> footerWithRefreshingBlock:^&#123;</div><div class="line">       &#125;];</div></pre></td></tr></table></figure>
+<h2 id="实际效果图"><a href="#实际效果图" class="headerlink" title="实际效果图"></a>实际效果图</h2><p>下拉加载效果图：<br><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/32C91555-A22F-4F42-AA1C-8B3DFC0C3F07.png?raw=true" alt=""></p>
+<p>下拉加载效果图：<br><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/E4D3AE16-88C8-4617-AF37-C0BE82CBD8CA.png?raw=true" alt=""></p>
+<p>加载完毕效果图：<br><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/QQ20170517-0.png?raw=true" alt=""></p>
+<h2 id="自定义图片"><a href="#自定义图片" class="headerlink" title="自定义图片"></a>自定义图片</h2><p>将图片放入Bundle文件夹即可。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://leoAntu.github.io/2014/12/24/MJRefresh实现自定义动画/" data-id="cj2sp95mg00011io69ogixo5u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-一款快速上传项目到git及建立私有Pod源的脚本" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/11/28/一款快速上传项目到git及建立私有Pod源的脚本/" class="article-date">
@@ -103,15 +148,11 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>一款快速上传项目到git及建立自己的私有Pod源脚本，方便快捷。<a href="https://github.com/leoAntu/podShell" target="_blank" rel="external">下载podShell</a></p>
-<p>####1.先到git上开一个repo。</p>
-<p><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/B60AC312-71C3-4C7B-A7BD-668D4351C0E0.png?raw=true" alt=""></p>
-<p>####2.创建文件夹，将podShell拖入到文件夹。</p>
-<p> 通过终端进入文件夹路径。<br> <img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/1BB6C498-C4DE-40DF-B8F5-E92BBC5D56D1.png?raw=true" alt=""></p>
-<p>####3.运行.config.sh文件。</p>
-<p> 依次填入对应的信息<br> <img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/66233E78-521E-464C-A275-4F6AF20BCB29.png?raw=true" alt=""></p>
+<h4 id="1-先到git上开一个repo。"><a href="#1-先到git上开一个repo。" class="headerlink" title="1.先到git上开一个repo。"></a>1.先到git上开一个repo。</h4><p><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/B60AC312-71C3-4C7B-A7BD-668D4351C0E0.png?raw=true" alt=""></p>
+<h4 id="2-创建文件夹，将podShell拖入到文件夹。"><a href="#2-创建文件夹，将podShell拖入到文件夹。" class="headerlink" title="2.创建文件夹，将podShell拖入到文件夹。"></a>2.创建文件夹，将podShell拖入到文件夹。</h4><p> 通过终端进入文件夹路径。<br> <img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/1BB6C498-C4DE-40DF-B8F5-E92BBC5D56D1.png?raw=true" alt=""></p>
+<h4 id="3-运行-config-sh文件。"><a href="#3-运行-config-sh文件。" class="headerlink" title="3.运行.config.sh文件。"></a>3.运行.config.sh文件。</h4><p> 依次填入对应的信息<br> <img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/66233E78-521E-464C-A275-4F6AF20BCB29.png?raw=true" alt=""></p>
 <p>最后发现podShell同级文件夹会如下图所示。<br><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/98E63650-F698-41B5-BC75-A0B02E3D34D2.png?raw=true" alt=""></p>
-<p>####4.将需要上传的文件拖入到图中Demo文件夹目录即可,运行tag.sh</p>
-<pre><code>输入对应的tag号
+<h4 id="4-将需要上传的文件拖入到图中Demo文件夹目录即可-运行tag-sh"><a href="#4-将需要上传的文件拖入到图中Demo文件夹目录即可-运行tag-sh" class="headerlink" title="4.将需要上传的文件拖入到图中Demo文件夹目录即可,运行tag.sh"></a>4.将需要上传的文件拖入到图中Demo文件夹目录即可,运行tag.sh</h4><pre><code>输入对应的tag号
 ![](https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/C4ACFA9F-0398-4B66-98FC-7E02D672FA80.png?raw=true)
 </code></pre><p><strong>此时已经将项目上传至git并打上tag值。但是还没有发布自己的Pods。</strong></p>
 <h4 id="5-注册Trunk"><a href="#5-注册Trunk" class="headerlink" title="5.注册Trunk"></a>5.注册Trunk</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk register email &apos;name&apos; --description=&apos;macbook air&apos;</div></pre></td></tr></table></figure>
@@ -120,8 +161,7 @@ ga('send', 'pageview');
 <p>####6.发布到pod trunk</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk push leoTestDemo.podspec</div></pre></td></tr></table></figure>
 <p><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/D93F3646-04DE-49D8-91F7-94C9C53E4480.png?raw=true" alt=""><br>如上图所示发布成功</p>
-<p>####7.更新pod库</p>
-<p>发布成功。通过pod search指令可能不是立即找到我们发布的项目，可通过下面两条指令操作。</p>
+<h4 id="7-更新pod库"><a href="#7-更新pod库" class="headerlink" title="7.更新pod库"></a>7.更新pod库</h4><p>发布成功。通过pod search指令可能不是立即找到我们发布的项目，可通过下面两条指令操作。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod setup</div></pre></td></tr></table></figure>
 <p>删除本地索引</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -f ~/Library/Caches/CocoaPods/search_index.json</div></pre></td></tr></table></figure>
@@ -129,7 +169,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://leoAntu.github.io/2014/11/28/一款快速上传项目到git及建立私有Pod源的脚本/" data-id="cj2re1tuz000477o6cmp9mc8l" class="article-share-link">Share</a>
+      <a data-url="http://leoAntu.github.io/2014/11/28/一款快速上传项目到git及建立私有Pod源的脚本/" data-id="cj2sp95mn00031io6wn57buw2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -187,7 +227,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://leoAntu.github.io/2014/10/12/App中如何实现快速实现打电话，发短信功能/" data-id="cj2re1ttx000077o6jxqhdt4o" class="article-share-link">Share</a>
+      <a data-url="http://leoAntu.github.io/2014/10/12/App中如何实现快速实现打电话，发短信功能/" data-id="cj2sp95ma00001io6ugx5fjwg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -235,7 +275,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://leoAntu.github.io/2014/08/21/浅析OC中drawRect/" data-id="cj2re1tvi000877o6vrciwrpt" class="article-share-link">Share</a>
+      <a data-url="http://leoAntu.github.io/2014/08/21/浅析OC中drawRect/" data-id="cj2sp95mq00041io64deyzgee" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -286,7 +326,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://leoAntu.github.io/2014/05/30/Mac搭建Hexo免费博客（三）/" data-id="cj2re1tuu000377o66irxbdot" class="article-share-link">Share</a>
+      <a data-url="http://leoAntu.github.io/2014/05/30/Mac搭建Hexo免费博客（三）/" data-id="cj2sp95mt00051io61bauh8uh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -424,7 +464,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://leoAntu.github.io/2014/05/25/Mac搭建Hexo免费博客（二）/" data-id="cj2re1tv9000577o6qlcqf5k7" class="article-share-link">Share</a>
+      <a data-url="http://leoAntu.github.io/2014/05/25/Mac搭建Hexo免费博客（二）/" data-id="cj2sp95n2000a1io641z9e88k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -519,7 +559,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://leoAntu.github.io/2014/05/21/Mac搭建Hexo免费博客（一)/" data-id="cj2re1tud000177o670mez7u8" class="article-share-link">Share</a>
+      <a data-url="http://leoAntu.github.io/2014/05/21/Mac搭建Hexo免费博客（一)/" data-id="cj2sp95my00081io6hjxuy04c" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -542,7 +582,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">6</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -560,7 +600,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -570,6 +610,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/12/24/MJRefresh实现自定义动画/">MJRefresh实现自定义动画</a>
+          </li>
         
           <li>
             <a href="/2014/11/28/一款快速上传项目到git及建立私有Pod源的脚本/">一款快速上传项目到git及建立私有Pod源的脚本</a>
@@ -585,10 +629,6 @@ ga('send', 'pageview');
         
           <li>
             <a href="/2014/05/30/Mac搭建Hexo免费博客（三）/">Mac搭建Hexo免费博客（三）</a>
-          </li>
-        
-          <li>
-            <a href="/2014/05/25/Mac搭建Hexo免费博客（二）/">Mac搭建Hexo免费博客（二）</a>
           </li>
         
       </ul>
