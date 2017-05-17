@@ -3,17 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014 | leoAntu Blog</title>
+  <title>MJRefresh实现自定义动画 | leoAntu Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS开发者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="leoAntu Blog">
-<meta property="og:url" content="http://leoAntu.github.io/archives/2014/index.html">
+  <meta name="description" content="项目背景在实际开发中，产品对刷新的视觉效果越来越高，最常见的就是动画效果。本项目继承MJRefresh，让上拉，下拉，更好的自定义动画效果。 支持pod1pod &quot;LARefresh&quot; 使用说明12345self.tableView.mj_header = [LARefreshHeader headerWithRefreshingBlock:^&amp;#123;     &amp;#125;]; self.ta">
+<meta name="keywords" content="Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MJRefresh实现自定义动画">
+<meta property="og:url" content="http://leoAntu.github.io/2014/12/24/MJRefresh实现自定义动画/index.html">
 <meta property="og:site_name" content="leoAntu Blog">
-<meta property="og:description" content="iOS开发者">
+<meta property="og:description" content="项目背景在实际开发中，产品对刷新的视觉效果越来越高，最常见的就是动画效果。本项目继承MJRefresh，让上拉，下拉，更好的自定义动画效果。 支持pod1pod &quot;LARefresh&quot; 使用说明12345self.tableView.mj_header = [LARefreshHeader headerWithRefreshingBlock:^&amp;#123;     &amp;#125;]; self.ta">
+<meta property="og:image" content="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/32C91555-A22F-4F42-AA1C-8B3DFC0C3F07.png?raw=true">
+<meta property="og:image" content="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/E4D3AE16-88C8-4617-AF37-C0BE82CBD8CA.png?raw=true">
+<meta property="og:image" content="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/QQ20170517-0.png?raw=true">
+<meta property="og:updated_time" content="2017-05-17T08:01:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leoAntu Blog">
-<meta name="twitter:description" content="iOS开发者">
+<meta name="twitter:title" content="MJRefresh实现自定义动画">
+<meta name="twitter:description" content="项目背景在实际开发中，产品对刷新的视觉效果越来越高，最常见的就是动画效果。本项目继承MJRefresh，让上拉，下拉，更好的自定义动画效果。 支持pod1pod &quot;LARefresh&quot; 使用说明12345self.tableView.mj_header = [LARefreshHeader headerWithRefreshingBlock:^&amp;#123;     &amp;#125;]; self.ta">
+<meta name="twitter:image" content="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/32C91555-A22F-4F42-AA1C-8B3DFC0C3F07.png?raw=true">
 <meta name="twitter:creator" content="@coolwuxing">
   
     <link rel="alternative" href="/atom.xml" title="leoAntu Blog" type="application/atom+xml">
@@ -78,153 +84,61 @@ ga('send', 'pageview');
   </div>
 </div>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/12/24/MJRefresh实现自定义动画/" class="archive-article-date">
-  <time datetime="2014-12-24T04:33:51.000Z" itemprop="datePublished">Dec 24</time>
+        <section id="main"><article id="post-MJRefresh实现自定义动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/24/MJRefresh实现自定义动画/" class="article-date">
+  <time datetime="2014-12-24T04:33:51.000Z" itemprop="datePublished">2014-12-24</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/12/24/MJRefresh实现自定义动画/">MJRefresh实现自定义动画</a>
+    <h1 class="article-title" itemprop="name">
+      MJRefresh实现自定义动画
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/11/28/一款快速上传项目到git及建立私有Pod源的脚本/" class="archive-article-date">
-  <time datetime="2014-11-28T08:33:51.000Z" itemprop="datePublished">Nov 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/11/28/一款快速上传项目到git及建立私有Pod源的脚本/">一款快速上传项目到git及建立私有Pod源的脚本</a>
-    </h1>
-  
+        <h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>在实际开发中，产品对刷新的视觉效果越来越高，最常见的就是动画效果。<br>本项目继承MJRefresh，让上拉，下拉，更好的自定义动画效果。</p>
+<h2 id="支持pod"><a href="#支持pod" class="headerlink" title="支持pod"></a>支持pod</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod <span class="string">"LARefresh"</span></div></pre></td></tr></table></figure>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.tableView.mj_header = [<span class="type">LARefreshHeader</span> headerWithRefreshingBlock:^&#123;</div><div class="line">    </div><div class="line"> &#125;];</div><div class="line"> <span class="keyword">self</span>.tableView.mj_footer = [<span class="type">LARefreshFooter</span> footerWithRefreshingBlock:^&#123;</div><div class="line">       &#125;];</div></pre></td></tr></table></figure>
+<h2 id="实际效果图"><a href="#实际效果图" class="headerlink" title="实际效果图"></a>实际效果图</h2><p>下拉加载效果图：<br><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/32C91555-A22F-4F42-AA1C-8B3DFC0C3F07.png?raw=true" alt=""></p>
+<p>下拉加载效果图：<br><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/E4D3AE16-88C8-4617-AF37-C0BE82CBD8CA.png?raw=true" alt=""></p>
+<p>加载完毕效果图：<br><img src="https://github.com/leoAntu/leoImagesStorage/blob/master/leoImagesStorage/QQ20170517-0.png?raw=true" alt=""></p>
+<h2 id="自定义图片"><a href="#自定义图片" class="headerlink" title="自定义图片"></a>自定义图片</h2><p>将图片放入Bundle文件夹即可。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/10/12/App中如何实现快速实现打电话，发短信功能/" class="archive-article-date">
-  <time datetime="2014-10-12T08:33:51.000Z" itemprop="datePublished">Oct 12</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/12/App中如何实现快速实现打电话，发短信功能/">App中如何实现快速实现打电话，发短信功能</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/08/21/浅析OC中drawRect/" class="archive-article-date">
-  <time datetime="2014-08-21T08:33:51.000Z" itemprop="datePublished">Aug 21</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://leoAntu.github.io/2014/12/24/MJRefresh实现自定义动画/" data-id="cj2sp95mg00011io69ogixo5u" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/08/21/浅析OC中drawRect/">浅析OC中drawRect</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/05/30/Mac搭建Hexo免费博客（三）/" class="archive-article-date">
-  <time datetime="2014-05-30T08:53:51.000Z" itemprop="datePublished">May 30</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/05/30/Mac搭建Hexo免费博客（三）/">Mac搭建Hexo免费博客（三）</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/05/25/Mac搭建Hexo免费博客（二）/" class="archive-article-date">
-  <time datetime="2014-05-25T07:53:51.000Z" itemprop="datePublished">May 25</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/05/25/Mac搭建Hexo免费博客（二）/">Mac搭建Hexo免费博客（二）</a>
-    </h1>
   
+    <a href="/2014/11/28/一款快速上传项目到git及建立私有Pod源的脚本/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">一款快速上传项目到git及建立私有Pod源的脚本</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/05/21/Mac搭建Hexo免费博客（一)/" class="archive-article-date">
-  <time datetime="2014-05-21T07:53:51.000Z" itemprop="datePublished">May 21</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/05/21/Mac搭建Hexo免费博客（一)/">Mac搭建Hexo免费博客（一）</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 </section>
         
           <aside id="sidebar">
